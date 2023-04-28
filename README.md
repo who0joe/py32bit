@@ -1,13 +1,72 @@
-# py32bit
+# 32bit Python(3.11.3) Template
 
-Configurate Embeded Python ***32bit*** Interpreter
-
-python-3.11.3-embed-win32
+Embeded Python (for Windows) Interpreter  ***32bit***   
 
 
-### To Test
-execute run.ps1 to run ./python/check.py
+> ### Python 3.11.3 - April 5, 2023    
+> **Note that Python 3.11.3 cannot be used on Windows 7 or earlier.**
+>
+> [Download Windows embeddable package (32-bit)](https://www.python.org/ftp/python/3.11.3/python-3.11.3-embed-win32.zip)  
+>
+
+## How to Setup
+1. Open Powershell
+2. Move to working directory
+3. Just run setup_python32.ps1 
+
+```powershell
+# Optionally you can change folder name by sending paramter.Default is "python32"
+.\setup_python32.ps1 {FolderName}
 ```
-./run.ps1
+
+### To use 32bit python interpreter
+
+Please note that the embedded Python used here is not registered in the environment variable, so you must specify the path directly.
+
+```powershell
+> ./{FolderName}/python {command}
 ```
+
+OR
+
+```powershell
+> cd {FolderName}
+> ./python {command}
+```
+
+---
+### Check
+
+```powershell
+
+# to check python interpreter version
+> ./python32/python --version
+
+# to check pip version
+> ./python32/python -m pip --version
+
+# execut check.py to check supporting archecture and 
+./python32/python ./check.py
+
+```
+
+### Manual Setup
+```ps
+# download
+> Invoke-WebRequest -Uri "https://www.python.org/ftp/python/3.11.3/python-3.11.3-embed-win32.zip" -OutFile "python-3.11.3-embed-win32.zip"
+
+# unzip to ./python32
+> Expand-Archive -Path "python-3.11.3-embed-win32.zip" -DestinationPath "./{python32}"
+
+# get get-pip.py file to diectory by using curl
+> curl https://bootstrap.pypa.io/get-pip.py -o ./{python32}/get-pip.py
+
+# setup pip correspondent to current python (32bit) interpreter
+> ./{python32}/python.exe ./{python32}/get-pip.py
+
+(IMPORTANT)
+ADD path "/Lib/site-packages" to ./python32/python311._pth
+```
+
+
 
