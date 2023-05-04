@@ -21,6 +21,7 @@ Expand-Archive -Path "python-3.11.3-embed-win32.zip" -DestinationPath "./$dir"
 # remove zip file
 Remove-Item -Path "python-3.11.3-embed-win32.zip"
 
+
 # check python version
 $pythonExe = Join-Path -Path $dir -ChildPath 'python.exe'
 $pythonFinsish = Invoke-Expression "& '$pythonExe' --version" | Out-String
@@ -38,6 +39,9 @@ curl https://bootstrap.pypa.io/get-pip.py -o ./$dir/get-pip.py
 $file = "./$dir/python311._pth"
 $content = Get-Content $file
 $content[2] += "/Lib/site-packages`r`n"
+$content[2] += "/Lib/site-packages/win32`r`n"
+$content[2] += "/Lib/site-packages/win32/lib`r`n"
+$content[2] += "/Lib/site-packages/win32/pythonwin`r`n"
 Set-Content $file $content
 
 # remove get-pip.py file
@@ -51,5 +55,7 @@ Write-Host $pipFinsish
 Write-Host "Setup Finished."
 
 # # to install packages
-# & $pipExe install --no-warn-script-location `
-# pywin32 `
+& $pipExe install --no-warn-script-location pywin32 pywinauto
+
+# run post-installation script
+& $pythonExe ./$dir/Scripts/pywin32_postinstall.py -install

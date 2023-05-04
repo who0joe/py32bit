@@ -62,11 +62,20 @@ OR
 > curl https://bootstrap.pypa.io/get-pip.py -o ./{python32}/get-pip.py
 
 # setup pip correspondent to current python (32bit) interpreter
-> ./{python32}/python.exe ./{python32}/get-pip.py
+> ./{python32}/python ./{python32}/get-pip.py
+
+# install pip pywin32 pywinauto
+> ./{python32}/python - m pip install pywin32 pywinauto
+
+# run pywin32_postinstall
+> ./{python32}/python ./{python32}/Scripts/pywin32_postinstall.py -install
 
 (IMPORTANT)
-ADD path "/Lib/site-packages" to ./python32/python311._pth
+ADD path "/Lib/site-packages" 
+ADD path "/Lib/site-packages/win32"
+ADD path "/Lib/site-packages/pythonwin" 
+=> At ./python32/python311._pth
+
+
 ```
-
-
 
