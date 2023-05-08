@@ -1,7 +1,20 @@
-{
-    
-// "python.analysis.extraPaths": [
-//     "./python-3.11.3-embed-win32"
-//     ]
-}   
-    
+// {
+//     "editor.formatOnSave": true,
+//     "[python]": {
+//         "editor.defaultFormatter": "ms-python.black-formatter",
+//         "editor.formatOnSave": true,
+//         "editor.codeActionsOnSave": {
+//             "source.organizeImports": true
+//         },
+//         "editor.formatOnType": true
+//     },
+//     "python.formatting.provider": "none",
+//     "python.formatting.blackPath": "black",
+//     "python.formatting.blackArgs": [
+//         "--line-length=88"
+//     ],
+//     "isort.args": [
+//         "--profile",
+//         "black"
+//     ],
+// }
