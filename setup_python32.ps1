@@ -41,7 +41,7 @@ $content = Get-Content $file
 $content[2] += "/Lib/site-packages`r`n"
 $content[2] += "/Lib/site-packages/win32`r`n"
 $content[2] += "/Lib/site-packages/win32/lib`r`n"
-$content[2] += "/Lib/site-packages/win32/pythonwin`r`n"
+$content[2] += "/Lib/site-packages/pythonwin`r`n"
 Set-Content $file $content
 
 # remove get-pip.py file
