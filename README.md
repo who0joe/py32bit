@@ -6,8 +6,8 @@ Embeded Python (for Windows) Interpreter  ***32bit***
 > ### Python 3.11.3 - April 5, 2023    
 > **Note that Python 3.11.3 cannot be used on Windows 7 or earlier.**
 >
-> [Download Windows embeddable package (32-bit)](https://www.python.org/ftp/python/3.11.3/python-3.11.3-embed-win32.zip)  
->
+> [Download Windows embeddable python-3.11.3 (32-bit)](https://www.python.org/ftp/python/3.11.3/python-3.11.3-embed-win32.zip)  
+> [Find Another Version](https://www.python.org/downloads/windows/)
 
 ## How to Setup
 1. Open Powershell
