@@ -59,7 +59,8 @@ OR
 > Expand-Archive -Path "python-3.11.3-embed-win32.zip" -DestinationPath "./{python32}"
 
 # get get-pip.py file to diectory by using curl
-> curl https://bootstrap.pypa.io/get-pip.py -o ./{python32}/get-pip.py
+(PowerShell) > Invoke-WebRequest -Uri "https://bootstrap.pypa.io/get-pip.py" -OutFile ".\{python32}\get-pip.py"
+(bash) > curl https://bootstrap.pypa.io/get-pip.py -o ./{python32}/get-pip.py
 
 # setup pip correspondent to current python (32bit) interpreter
 > ./{python32}/python ./{python32}/get-pip.py
@@ -76,6 +77,19 @@ ADD path "/Lib/site-packages/win32"
 ADD path "/Lib/site-packages/pythonwin" 
 => At ./python32/python311._pth
 
+# python package download (ex pandas)
+pip download 패키지명 -d /폴더경로
+ex) pip download pandas -d /path/to/download
+
+# python package install offline
+python -m pip install 파일명.whl -f ./ --no-index
 
 ```
+
+- -f ./ 또는 --find-links ./: 이 옵션은 pip에게 패키지를 찾을 추가적인 위치를 지정합니다. 
+    여기서는 현재 디렉토리를 지정하고 있습니다. 
+    즉, pip는 현재 디렉토리에서 패키지를 찾으려고 시도할 것입니다.
+- --no-index: 이 옵션은 pip에게 PyPI (Python Package Index)와 같은 기본 패키지 인덱스를 사용하지 않도록 지시합니다. 
+    대신에 -f 옵션으로 지정된 위치에서만 패키지를 찾습니다.
+
 
