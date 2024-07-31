@@ -7,6 +7,7 @@ Embeded Python (for Windows) Interpreter  ***32bit***
 > **Note that Python 3.11.3 cannot be used on Windows 7 or earlier.**
 >
 > [Download Windows embeddable python-3.11.3 (32-bit)](https://www.python.org/ftp/python/3.11.3/python-3.11.3-embed-win32.zip)  
+> [python 3.12.4 windows amd64](https://www.python.org/ftp/python/3.12.4/python-3.12.4-embed-amd64.zip)
 > [Find Another Version](https://www.python.org/downloads/windows/)
 
 ## How to Setup
@@ -79,10 +80,10 @@ ADD path "/Lib/site-packages/pythonwin"
 
 # python package download (ex pandas)
 pip download 패키지명 -d /폴더경로
-ex) pip download pandas -d /path/to/download
+ex) pip download pandas -d ./path/to/download
 
 # python package install offline
-python -m pip install 파일명.whl -f ./ --no-index
+python -m pip install -f ./path/to/download --no-index pandas
 
 ```
 
